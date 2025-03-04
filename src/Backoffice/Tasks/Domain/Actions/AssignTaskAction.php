@@ -1,0 +1,19 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Lightit\Backoffice\Tasks\Domain\Actions;
+
+use Lightit\Backoffice\Tasks\Domain\DataTransferObjects\AssignTaskDto;
+use Lightit\Backoffice\Tasks\Domain\Models\Task;
+
+class AssignTaskAction
+{
+    public function execute(Task $task, AssignTaskDto $assignTaskDto): Task
+    {
+        $task->employee_id = $assignTaskDto->getEmployeeId();
+        $task->save();
+
+        return $task;
+    }
+}
