@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Lightit\Backoffice\Tasks\Domain\Actions;
 
+use Lightit\Backoffice\Tasks\App\Notifications\TaskCreated;
 use Lightit\Backoffice\Tasks\Domain\DataTransferObjects\TaskDto;
 use Lightit\Backoffice\Tasks\Domain\Models\Task;
 
@@ -19,6 +20,10 @@ class StoreTaskAction
         ]);
 
         $task->save();
+
+        if ($taskDto->getEmployeeId()) {
+            $task->employee->notify(new TaskCreated($task));
+        }
 
         return $task;
     }
