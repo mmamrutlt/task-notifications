@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldBeEncrypted;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Lightit\Backoffice\Employees\Domain\Models\Employee;
 use Lightit\Backoffice\Tasks\Domain\Models\Task;
 
 class TaskAssigned extends Notification implements ShouldQueue, ShouldBeEncrypted
@@ -17,7 +18,7 @@ class TaskAssigned extends Notification implements ShouldQueue, ShouldBeEncrypte
 
     public function __construct(
         private readonly Task $task,
-        private readonly object $employee,
+        private readonly Employee $employee,
     ) {
     }
 

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Lightit\Backoffice\Tasks\Domain\Actions;
 
+use Lightit\Backoffice\Tasks\App\Notifications\TaskAssigned;
 use Lightit\Backoffice\Tasks\Domain\DataTransferObjects\AssignTaskDto;
 use Lightit\Backoffice\Tasks\Domain\Models\Task;
-use Lightit\Backoffice\Tasks\App\Notifications\TaskAssigned;
 
 class AssignTaskAction
 {
